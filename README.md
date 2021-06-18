@@ -20,7 +20,7 @@ before_each do |lane, options|
 end
 ```
 
-Now within lanes, you can _INVOKE_ other lanes for various other reasons, in other words, each lane can have different functions essentially. 
+Now within lanes, you can _INVOKE_ other lanes for various other reasons, in other words, each lane can have different functions essentially:
 
 ```ruby
 error do |lane, exception, options|
