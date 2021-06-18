@@ -158,6 +158,7 @@ lane :production do
   # ...
 end
 ```
+-> 
 
 ```ruby
 lane :beta do
@@ -167,6 +168,7 @@ lane :beta do
   # ...
 end
 ```
+-> 
 
 ```ruby
 lane :build do |options|
@@ -176,6 +178,7 @@ lane :build do |options|
 end
 It probably doesn't make sense to execute the build lane directly using fastlane build. You can hide this lane using
 ```
+-> 
 
 ```ruby
 private_lane :build do |options|
