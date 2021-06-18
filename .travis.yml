@@ -2,7 +2,7 @@
 language: objective-c
 osx_image: xcode9.2
 xcode_sdk: iphonesimulator11.0
-# Travis CI Script by Montana Mendy
+# Travis CI .travis.yml by Montana Mendy
 # Fastlane scan - runs the application tests
 script:
 - fastlane scan
