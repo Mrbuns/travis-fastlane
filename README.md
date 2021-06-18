@@ -261,14 +261,15 @@ fastlane new_lane
 ```
 ## Setting fastlane up in iOS for different export methods and provision profiles?
 
-So my guess is that anyway your project is scoped you have more than 1 `bundle` identifier to the different apps. 
+So my guess is that anyway your project is scoped you have more than 1 `bundle` identifier to the different apps in question. 
 
 Remember with Fastlane you can setup a new target and just create the same lane with a different scheme for that target (or build a function and send the correct scheme as a parameter). You will also have to create a different `bundle id`.
 
-If you don't wish to create a different target and you are you using Automatic signing on your project, (some SSO), you will have to change it to manual and specify the provisioning profile there. Please make sure there's nothing that could conflict with Travis or Fastlane. 
-something like this:
+If you don't wish to create a different target and you are you using Automatic signing on your project, (some SSO), you will have to change it to manual and specify the provisioning profile there. 
 
-Prod
+Please make sure there's nothing that could conflict with Travis or Fastlane, so it should look like something like this:
+
+## Prod
 
   ```ruby
   build_app(
@@ -284,7 +285,7 @@ Prod
   })
   ```
   
-Ad-hoc
+## Ad-hoc
 
   ```ruby
   build_app(
@@ -299,3 +300,32 @@ Ad-hoc
     }
   })
 ``` 
+## Can fastlane skip `before_all` or `after_all` in certain lanes in Travis? 
+
+You certainly can with Travis and Fastlane. One way to accomplish this with certain `lanes` would be the following:
+
+```ruby
+before_all do |lane|
+  if lane == :test
+    puts "Do something for test"
+  else
+    puts "Montana"
+  end
+end
+```
+
+```ruby
+lanes = [:test, :foo, :bar]
+lanes.include?(:test) # => true
+lanes.include?(:baz) # => false
+Now do what you need Montana says! 
+```
+
+```ruby
+before_all do |lane|
+  lanes_to_say_foo = [:test, :build, :other]
+  if lanes_to_say_foo.include?(lane)
+    puts "Montana"
+  end
+end
+```
