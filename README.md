@@ -247,3 +247,17 @@ for_platform :mac do
 end
 ```
 So now you can expect the ```app_identifier``` to equal "com.forplatform.mac.forlane.release" when invoking Fastlane mac release.
+
+# Frequently Asked Questions 
+
+## Changing the fastlane execution folder while inside a lane
+
+Yes, you can do this! The way I've classically done this is make two fastlane lanes, one for the old location, one for the new, so then your new script looks somethng like this:
+
+```bash
+cd old-location
+fastlane old_lane
+cp -r old-location new-location
+cd new-location
+fastlane new_lane
+```
