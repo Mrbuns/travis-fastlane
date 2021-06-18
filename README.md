@@ -313,13 +313,14 @@ before_all do |lane|
   end
 end
 ```
+Addiotnally:
 
 ```ruby
 lanes = [:test, :foo, :bar]
 lanes.include?(:test) # => true
 lanes.include?(:baz) # => false
-Now do what you need Montana says! 
 ```
+So the final output would look like this:
 
 ```ruby
 before_all do |lane|
