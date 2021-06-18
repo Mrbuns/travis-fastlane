@@ -6,4 +6,4 @@ xcode_sdk: iphonesimulator11.0
 # Fastlane scan - runs the application tests
 script:
 - fastlane scan
-- echo "What lane, STILL? How many LANES? Is it infinite lanes. Jake Augunas just made a callback lane, so did Jeff Ward. Can we then lane hop?" 
+- echo "What lane, STILL? How many LANES? Is it infinite lanes? Jake Augunas just made a callback lane, so did Jeff Ward. Can we then lane hop?" 
