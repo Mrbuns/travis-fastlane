@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/coletiv/medium-ios-automated-testing-fastlane.svg?branch=master)](https://travis-ci.org/coletiv/medium-ios-automated-testing-fastlane)
+[![Build Status](https://travis-ci.com/Montana/travis-fastlane.svg?branch=master)](https://travis-ci.com/Montana/travis-fastlane)
 
 # Can you still use Fastlane with Travis CI in 2021?
 
