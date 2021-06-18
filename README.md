@@ -2,7 +2,7 @@
 
 # Can you still use Fastlane with Travis CI in 2021?
 
-The simple answer is yes. After doing a whole day's research, I was able to successfully use Fastlane. This tool is still very useful in my opinion when it comes to actually splitting tests. Some things I saw people forget, is the simple start: 
+The simple answer is yes. After doing a whole day's research, I was able to successfully use Fastlane. This tool is still very useful in my opinion when it comes to actually splitting tests. Some things I saw people forget, is the simple start.
 
 When using Fastlanes you should really remember if you're going to pass parameters from the command line to your lane, use the following syntax:
 
