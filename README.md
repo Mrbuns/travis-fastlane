@@ -191,9 +191,7 @@ fastlane list
 fastlane docs
 ```
 
-And also, you can't call the private lane using fastlane build.
-
-The resulting private lane can only be called from another lane using the lane switching technology, or the `lane callback`.
+And also, you can't call the private lane using fastlane build. The resulting private lane can only be called from another lane using the lane switching technology, or the `lane callback`.
 
 ## Control configuration by lane and by platform
 
@@ -208,9 +206,9 @@ So, ```the app_identfier``` will be "com.used.id" and the second value will be i
 
 All configuration files (Appfile, Matchfile, Screengrabfile, etc.) can use ```for_lane``` and ```for_platform blocks``` to control (and override) configuration values for those circumstances.
 
-```for_lane``` blocks will be called when the name of lane invoked on the command line matches the one specified by the block. So, given a Screengrabfile like:
+So ```for_lane``` blocks will be called when the name of lane invoked on the command line matches the one specified by the block. So, given a Screengrabfile like:
 
-```locales ['en-US', 'fr-FR', 'ja-JP']```
+For the locales (language lane): ```locales ['en-US', 'fr-FR', 'ja-JP']```
 
 ```ruby
 for_lane :screenshots_english_only do
