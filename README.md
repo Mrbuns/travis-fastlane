@@ -248,11 +248,9 @@ end
 ```
 So now you can expect the ```app_identifier``` to equal "com.forplatform.mac.forlane.release" when invoking Fastlane mac release.
 
-# Frequently Asked Questions 
+## Is it plausible to change the fastlane execution folder while inside a lane?
 
-## Changing the fastlane execution folder while inside a lane
-
-Yes, you can do this! The way I've classically done this is make two fastlane lanes, one for the old location, one for the new, so then your new script looks somethng like this:
+Yes, you can do this. The way I've classically done this is make two fastlane lanes, one for the old location, one for the new, so then your new script looks somethng like this:
 
 ```bash
 cd old-location
@@ -261,3 +259,43 @@ cp -r old-location new-location
 cd new-location
 fastlane new_lane
 ```
+## Setting fastlane up in iOS for different export methods and provision profiles?
+
+So my guess is that anyway your project is scoped you have more than 1 `bundle` identifier to the different apps. 
+
+Remember with Fastlane you can setup a new target and just create the same lane with a different scheme for that target (or build a function and send the correct scheme as a parameter). You will also have to create a different `bundle id`.
+
+If you don't wish to create a different target and you are you using Automatic signing on your project, (some SSO), you will have to change it to manual and specify the provisioning profile there. Please make sure there's nothing that could conflict with Travis or Fastlane. 
+something like this:
+
+Prod
+
+  ```ruby
+  build_app(
+  workspace: "XXXX.xcworkspace",
+  scheme: "XXXXX",
+  ......
+  export_options: {
+    method: "app-store",
+    signingStyle: 'manual',
+    provisioningProfiles: {
+      "bundle id": "Prod profile full name",
+    }
+  })
+  ```
+  
+Ad-hoc
+
+  ```ruby
+  build_app(
+  workspace: "XXXX.xcworkspace",
+  scheme: "XXXXX",
+  ......
+  export_options: {
+    method: "ad-hoc",
+    signingStyle: 'manual',
+    provisioningProfiles: {
+      "bundle id": "Montana's project",
+    }
+  })
+``` 
