@@ -313,7 +313,7 @@ before_all do |lane|
   end
 end
 ```
-Addiotnally:
+Additionally:
 
 ```ruby
 lanes = [:test, :foo, :bar]
